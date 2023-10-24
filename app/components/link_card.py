@@ -49,18 +49,18 @@ class LinkCardView(SingleDirectionScrollArea):
     """ Link card view """
 
     def __init__(self, parent=None):
-        super().__init__(parent, Qt.Horizontal)
+        super().__init__(parent, Qt.Orientation.Horizontal)
         self.view = QWidget(self)
         self.hBoxLayout = QHBoxLayout(self.view)
 
         self.hBoxLayout.setContentsMargins(36, 0, 0, 0)
         self.hBoxLayout.setSpacing(12)
-        self.hBoxLayout.setAlignment(Qt.AlignLeft)
+        self.hBoxLayout.setAlignment(Qt.AlignmentFlag.AlignLeft)
 
         self.setWidget(self.view)
         self.setWidgetResizable(True)
-        self.setVerticalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 
         self.view.setObjectName('view')
         StyleSheet.LINK_CARD.apply(self)
@@ -68,4 +68,4 @@ class LinkCardView(SingleDirectionScrollArea):
     def addCard(self, icon, title, content, url):
         """ add link card """
         card = LinkCard(icon, title, content, url, self.view)
-        self.hBoxLayout.addWidget(card, 0, Qt.AlignLeft)
+        self.hBoxLayout.addWidget(card, 0, Qt.AlignmentFlag.AlignLeft)

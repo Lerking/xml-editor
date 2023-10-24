@@ -24,7 +24,7 @@ else:
 
 # create application
 app = QApplication(sys.argv)
-app.setAttribute(Qt.AA_DontCreateNativeWidgetSiblings)
+app.setAttribute(Qt.ApplicationAttribute.AA_DontCreateNativeWidgetSiblings)
 
 # internationalization
 locale = cfg.get(cfg.language).value
